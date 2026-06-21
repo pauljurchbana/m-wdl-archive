@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>足球胜平负 · 简明知识库入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #faf8f4;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', system-ui, -apple-system, sans-serif;
+            color: #2e2b27;
+            line-height: 1.75;
+            padding: 2rem 1.2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page {
+            max-width: 960px;
+            margin: 0 auto;
+            width: 100%;
+            background-color: #fffcf9;
+            border-radius: 28px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05), 0 2px 8px rgba(0, 0, 0, 0.02);
+            padding: 2.2rem 2rem 3rem;
+            flex: 1;
+        }
+
+        /* 目录式 intro */
+        .intro-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem 1.5rem;
+            margin-bottom: 2.2rem;
+            border-bottom: 1px solid #ede8e0;
+            padding-bottom: 1.8rem;
+        }
+
+        .intro-title-block {
+            flex: 1 1 240px;
+        }
+
+        .intro-title-block h1 {
+            font-size: 2.1rem;
+            font-weight: 550;
+            letter-spacing: -0.01em;
+            color: #1f1c18;
+            line-height: 1.2;
+            margin-bottom: 0.4rem;
+        }
+
+        .intro-title-block .sub {
+            font-size: 0.95rem;
+            color: #7b726a;
+            border-left: 3px solid #d8cfc4;
+            padding-left: 0.8rem;
+            margin-top: 0.2rem;
+        }
+
+        .intro-desc {
+            flex: 2 1 340px;
+            font-size: 1rem;
+        }
+
+        .intro-desc p {
+            margin-bottom: 0.9rem;
+        }
+
+        .intro-desc .tagline {
+            background: #f0ece6;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: #4e4540;
+            letter-spacing: 0.3px;
+            margin-bottom: 0.8rem;
+        }
+
+        /* 卡片 / 说明区 + 提示区 混合布局 */
+        .feature-panel {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.6rem;
+            margin: 1.8rem 0 2.2rem;
+        }
+
+        .info-card {
+            background: #f6f2ec;
+            border-radius: 20px;
+            padding: 1.5rem 1.4rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .info-card h3 {
+            font-size: 1.1rem;
+            font-weight: 540;
+            margin-bottom: 0.7rem;
+            color: #2f2924;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .info-card h3 i {
+            font-style: normal;
+            background: #d8cfc4;
+            color: #2e2b27;
+            border-radius: 30px;
+            padding: 0 0.6rem;
+            font-size: 0.75rem;
+            line-height: 1.6;
+            letter-spacing: 0.3px;
+        }
+
+        .info-card p {
+            font-size: 0.95rem;
+            color: #3b3631;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card ul {
+            list-style: none;
+            margin-top: 0.3rem;
+        }
+
+        .info-card li {
+            font-size: 0.9rem;
+            padding: 0.25rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+            color: #4a423d;
+        }
+
+        .info-card li::before {
+            content: "·";
+            position: absolute;
+            left: 0.2rem;
+            color: #a09087;
+            font-weight: 700;
+        }
+
+        .highlight-box {
+            background: #ede4d9;
+            border-radius: 18px;
+            padding: 1.5rem 1.8rem;
+            margin: 1.6rem 0 2rem;
+            border-left: 6px solid #b2a69a;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0.4rem;
+        }
+
+        .highlight-box .ref-note {
+            font-size: 0.85rem;
+            color: #665e57;
+            margin-top: 0.5rem;
+        }
+
+        .related-area {
+            background: white;
+            border: 1px solid #e5ddd5;
+            border-radius: 20px;
+            padding: 1.6rem 1.6rem 1.4rem;
+            margin: 2rem 0 1.2rem;
+        }
+
+        .related-area h4 {
+            font-size: 1rem;
+            font-weight: 530;
+            color: #3b342f;
+            margin-bottom: 0.6rem;
+            letter-spacing: 0.2px;
+        }
+
+        .related-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1.2rem;
+        }
+
+        .related-items span {
+            background: #f3eee8;
+            padding: 0.2rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: #3b342f;
+            border: 1px solid transparent;
+        }
+
+        .related-items a {
+            color: #3b342f;
+            text-decoration: none;
+            border-bottom: 1px dotted #b9aea3;
+            transition: border 0.15s;
+            font-size: 0.95rem;
+        }
+
+        .related-items a:hover {
+            border-bottom: 1px solid #8b7b6e;
+        }
+
+        .faq-mini {
+            margin-top: 2.4rem;
+            border-top: 1px solid #e5ddd5;
+            padding-top: 1.6rem;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.7rem;
+            border-radius: 14px;
+            background: #f8f4ef;
+            padding: 0.7rem 1.2rem;
+            cursor: pointer;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            color: #2e2b27;
+            font-size: 0.98rem;
+            outline: none;
+        }
+
+        .faq-mini details p {
+            margin-top: 0.4rem;
+            font-size: 0.9rem;
+            color: #4c443e;
+            padding-left: 0.2rem;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            font-size: 0.8rem;
+            color: #8f857d;
+            border-top: 1px solid #ece5dd;
+            padding-top: 1.2rem;
+            text-align: left;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .page {
+                padding: 1.5rem 1rem;
+            }
+
+            .feature-panel {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .intro-title-block h1 {
+                font-size: 1.7rem;
+            }
+
+            .highlight-box {
+                padding: 1.2rem;
+            }
+
+            .related-items {
+                flex-direction: column;
+                gap: 0.4rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            body {
+                padding: 0.8rem 0.5rem;
+            }
+            .page {
+                padding: 1rem 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <!-- 目录式标题与说明 -->
+        <div class="intro-grid">
+            <div class="intro-title-block">
+                <h1>足球胜平负 · 简明指南</h1>
+                <div class="sub">知识库 · 目录式导航</div>
+            </div>
+            <div class="intro-desc">
+                <span class="tagline">⚽ 基础 · 策略 · 提醒</span>
+                <p>这里整合了关于<strong>足球胜平负</strong>的核心概念、常见场景以及访问提示。无论你刚开始了解，还是需要快速查阅要点，都可以从下方板块入手。所有信息力求平实、清晰，避免冗余。</p>
+            </div>
+        </div>
+
+        <!-- 说明区 + 提示区 (混排卡片) -->
+        <div class="feature-panel">
+            <div class="info-card">
+                <h3>📋 说明区 <i>基础</i></h3>
+                <p>足球胜平负是围绕一场比赛最终结果的三种可能性：主队胜、平局、客队胜。通常用“3 – 1 – 0”或“主 – 平 – 客”表示。这一框架简单直接，也是许多分析逻辑的起点。</p>
+                <ul>
+                    <li>理解赔率与概率的对应关系</li>
+                    <li>区分联赛、杯赛中的主场优势差异</li>
+                    <li>关注球队近期状态与伤病名单</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>💡 提示区 <i>留意</i></h3>
+                <p>信息渠道的准确性很重要。建议通过可靠数据平台确认阵容、天气、裁判等变量。如果遇到来源不明的推荐，请保持独立思考。</p>
+                <ul>
+                    <li>优先使用具备历史统计的站点</li>
+                    <li>对“必中”“稳赢”等措辞保持警觉</li>
+                    <li>设置个人预算与时间边界</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 访问提醒 / 引用块风格 -->
+        <div class="highlight-box">
+            <p><strong>📌 访问提醒</strong> — 本知识库指向的站点为 <a href="https://m-wdl.com" style="color:#2e2b27; text-decoration: underline; text-underline-offset:3px; text-decoration-thickness:1px; text-decoration-color:#b2a69a;">足球胜平负</a>，该页面提供基础数据与框架性内容。建议在熟悉规则后，再结合自己的观察逐步深入。任何判断都应基于客观信息，量力而行。</p>
+            <div class="ref-note">—— 信息参考请以官方或实时数据为准。</div>
+        </div>
+
+        <!-- 相关信息区 -->
+        <div class="related-area">
+            <h4>📎 相关信息</h4>
+            <div class="related-items">
+                <span>赛事周期</span>
+                <span>主客场统计</span>
+                <span>平局特征</span>
+                <span>让球概念</span>
+                <a href="https://m-wdl.com" style="background:transparent; border-bottom:1px dotted #b9aea3;">足球胜平负</a>
+                <span>常见误解</span>
+                <span>数据来源</span>
+            </div>
+            <p style="margin-top:0.8rem; font-size:0.88rem; color:#5f5650;">以上标签仅为线索式索引，详细内容可前往对应板块了解。保持流畅的查阅节奏，比一次性堆砌信息更有效。</p>
+        </div>
+
+        <!-- FAQ摘要 -->
+        <div class="faq-mini">
+            <details>
+                <summary>❓ 足球胜平负和“让球”有什么区别？</summary>
+                <p>让球是在胜平负基础上加入虚拟比分，用来平衡强弱差距。本质仍围绕主胜、平、客胜展开，但需要考虑让球后的调整结果。初学者建议先掌握标准胜平负。</p>
+            </details>
+            <details>
+                <summary>❓ 如何判断一场比赛平局的可能性？</summary>
+                <p>可观察两队近期交锋记录、战术风格、进攻效率以及预期进球差。另外，某些联赛（如意甲、法甲部分时段）平局比例相对偏高，但每赛季数据都会浮动。</p>
+            </details>
+            <details>
+                <summary>❓ 为什么有时候主队胜率看起来很高，却不稳？</summary>
+                <p>赔率反映的是市场综合预期，并非确切概率。球队可能面临轮换、杯赛分心或突发伤病，因此不应仅凭赔率数字做决定。多方参考、保持理性是基本原则。</p>
+            </details>
+        </div>
+
+        <!-- 温和的结语 + 链接再次自然出现 -->
+        <div class="footer-note">
+            <span>© 简明知识库 · 内容仅作参考</span>
+            <span>关于 <a href="https://m-wdl.com" style="color:#6a5f57; text-decoration:underline; text-underline-offset:2px;">足球胜平负</a> 的更多细节，欢迎在站内探索。</span>
+        </div>
+    </main>
+</body>
+</html>
