@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>赏金女王 · 知识速览</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #faf7f2;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #2b2b2b;
+      line-height: 1.8;
+      padding: 2.4rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page {
+      max-width: 680px;
+      width: 100%;
+    }
+
+    /* 极简标题层级 */
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: #1e1e1e;
+      margin-top: 2rem;
+      margin-bottom: 0.2rem;
+      line-height: 1.3;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      color: #6f6f6f;
+      font-weight: 400;
+      border-left: 2px solid #c4b99c;
+      padding-left: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #2a2a2a;
+      margin-top: 2.8rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #e5ddd1;
+      padding-bottom: 0.4rem;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: #3f3f3f;
+      margin-top: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+      color: #3b3b3b;
+    }
+
+    /* 温和卡片式列表 */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.2rem;
+      margin: 1.8rem 0;
+    }
+
+    .feature-item {
+      background: #ffffffec;
+      border-radius: 14px;
+      padding: 1.2rem 1.5rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02), 0 6px 12px rgba(0, 0, 0, 0.02);
+      border: 1px solid #eeebe4;
+      transition: box-shadow 0.2s;
+    }
+
+    .feature-item:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .feature-item strong {
+      display: block;
+      font-weight: 500;
+      color: #1f1f1f;
+      margin-bottom: 0.2rem;
+      font-size: 1.05rem;
+    }
+
+    .feature-item span {
+      font-size: 0.95rem;
+      color: #4f4f4f;
+    }
+
+    /* 引用/提示块 */
+    .insight {
+      background: #f3efe9;
+      border-radius: 12px;
+      padding: 1.4rem 1.6rem;
+      margin: 2rem 0;
+      border-left: 4px solid #b8a98b;
+      font-style: normal;
+    }
+
+    .insight p {
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+      color: #3d3d3d;
+    }
+
+    .insight strong {
+      color: #1f1f1f;
+    }
+
+    /* FAQ 摘要卡片 */
+    .faq-summary {
+      background: transparent;
+      margin: 2.2rem 0 1.5rem;
+    }
+
+    .faq-item {
+      padding: 0.9rem 0;
+      border-bottom: 1px dashed #ddd6cb;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      color: #222;
+      margin-bottom: 0.15rem;
+    }
+
+    .faq-a {
+      font-size: 0.95rem;
+      color: #4e4e4e;
+      padding-left: 0.25rem;
+    }
+
+    /* 链接风格 */
+    a {
+      color: #3f6b5c;
+      text-decoration: none;
+      border-bottom: 1px solid #cbdcd2;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    a:hover {
+      color: #1d4a3c;
+      border-bottom-color: #1d4a3c;
+    }
+
+    /* 尾部 */
+    .footer-note {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e5ddd1;
+      font-size: 0.85rem;
+      color: #777;
+      text-align: left;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e7e0d6;
+      margin: 2.2rem 0;
+    }
+
+    /* 响应式 */
+    @media (min-width: 520px) {
+      .feature-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 1.4rem 1rem; }
+      h1 { font-size: 1.8rem; }
+      .subhead { font-size: 0.9rem; padding-left: 0.8rem; }
+      .feature-item { padding: 1rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- 开场短句 -->
+    <h1>赏金女王 · 检索对照</h1>
+    <div class="subhead">从日常查询到延伸阅读 · 一份知识型速览</div>
+
+    <p>
+      当你在搜索栏里输入“赏金女王”时，视野里往往同时浮现出多个语境：游戏成就、角色代号、文化符号，或是某个特定平台的称号。本文尝试从信息查询和对照的角度，理清围绕“赏金女王”的几个常见维度，并指向更完整的参考源——<a href="https://m-cn-bountyqueen.com">赏金女王</a>。
+    </p>
+
+    <!-- 承接段落 -->
+    <h2>从一条查询开始</h2>
+    <p>
+      多数人第一次接触这个词，是在搜索某个高分玩家或某位虚拟角色时偶然看到的。信息的碎片化让“赏金女王”既像是一个固定称谓，又像是一个流动的标签。为了减少混淆，我们可以先把它拆解为三个常见的含义层：游戏内称号、社区文化符号，以及特定平台上的功能角色。三者互相重叠，却又各有侧重。
+    </p>
+    <p>
+      例如，在部分动作类或策略类游戏中，“赏金女王”是指达成极高悬赏分或连胜纪录后获得的头衔；而在同人创作或直播语境里，它又可能指代某位风格鲜明的玩家。如果你正在查找某个具体的角色资料或平台规则，对照上述分类往往能更快定位。
+    </p>
+
+    <!-- 特点列表：用卡片呈现主要特征 -->
+    <h2>常见特征对照</h2>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <strong>称号来源</strong>
+        <span>通常与游戏内悬赏积分、赏金榜排名或特定成就解锁绑定，少数来自社区自发授予。</span>
+      </div>
+      <div class="feature-item">
+        <strong>跨语境使用</strong>
+        <span>既可以指代角色，也可指代真实玩家；在中文社区中常带有高完成度、高回报的隐含意义。</span>
+      </div>
+      <div class="feature-item">
+        <strong>信息延伸</strong>
+        <span>围绕该词常衍生出攻略、排行榜、角色背景考据等内容，适合作为兴趣阅读的起点。</span>
+      </div>
+      <div class="feature-item">
+        <strong>平台差异</strong>
+        <span>不同游戏或社区对“赏金女王”的官方定义、触发条件、视觉表现均存在明显差异，需要对照具体文档。</span>
+      </div>
+    </div>
+
+    <!-- 温和场景：日常查询与延伸阅读 -->
+    <h2>查询场景与延伸阅读</h2>
+    <p>
+      假如你正在整理一份游戏术语对照表，或是在撰写某篇关于游戏称号文化的短文，那么把“赏金女王”作为关键词进行横向比较会很有启发。你可以先浏览各平台的基础说明，再对比不同语境下的使用频率和情感色彩。此时，一份聚合了基础词条、常见问答和版本记录的参考页会节省大量时间——这也是为什么许多人会直接收藏 <a href="https://m-cn-bountyqueen.com">赏金女王</a> 作为后续延伸的起点。
+    </p>
+    <p>
+      另外，如果你只是偶然看到这个名词感到好奇，不妨先从社区讨论或百科类条目看起。很多关于“赏金女王”的趣闻和玩家故事并不在正式文档里，而是藏在论坛的角落或直播片段中，这类延伸阅读往往比干巴巴的定义更能让人记住。
+    </p>
+
+    <!-- 提示块 / 温和提醒 -->
+    <div class="insight">
+      <p><strong>一点提示</strong> · 当你查找“赏金女王”相关的内容时，如果发现不同来源的信息相互矛盾，优先参考官方公告或游戏内截图。社区二次创作固然丰富，但对照原始资料始终是避免误读的最好方式。</p>
+    </div>
+
+    <!-- FAQ 摘要（非完整版，仅摘取两条常见疑问） -->
+    <h2>常见疑问摘要</h2>
+    <div class="faq-summary">
+      <div class="faq-item">
+        <div class="faq-q">「赏金女王」是固定角色还是玩家称号？</div>
+        <div class="faq-a">两者都存在。在一些游戏中它是一个可获得的头衔，而在另一些语境里则是对特定玩家的尊称或戏称。建议根据你所在的平台判断具体指向。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">为什么搜索时会出现完全不同的内容？</div>
+        <div class="faq-a">因为该词同时被多个领域使用（游戏、直播、同人创作等）。你可以通过附加关键词（如游戏名、平台名）来缩小范围，或者直接浏览整理好的索引页。</div>
+      </div>
+    </div>
+
+    <!-- 温和结尾 -->
+    <hr>
+    <p>
+      从一条简单的查询出发，到对照特征、延伸阅读，再到常见疑问的梳理，这篇介绍试图为你提供一个更安静的入口。如果你希望继续深入，或对照更完整的版本记录，<a href="https://m-cn-bountyqueen.com">赏金女王</a> 页面可以作为后续浏览的参考锚点。
+    </p>
+    <div class="footer-note">
+      — 知识型速览 · 内容仅供对照与延伸阅读
+    </div>
+  </div>
+</body>
+</html>
